@@ -1,0 +1,53 @@
+
+<!-- <label>This is not two way binding.</label>
+<input
+type="text"
+class="form-control"
+(input)="onUpdateServerName($event)"
+>
+<Label>This uses two way data binding</Label>
+-->
+<label>Server Name</label>
+<input
+type="text"
+class="form-control"
+[(ngModel)]="serverName"
+>
+<p *ngIf="serverCreated">Server was created, server name is {{serverName}}</p>
+
+<button 
+[disabled] = "!allowNewServer"
+(click) = "onCreateServer()"
+class="btn btn-primary">Add Server</button>
+<p>{{serverCreationStatus}}</p>
+<app-server *ngFor="let server of servers"></app-server>
+
+
+<!--
+<hr>
+<label>Assignment 2 - Combining Two Way, single Way, and property binding</label>
+<input 
+    type="text"
+    class="form-control"
+    [(ngModel)]="userName"
+>
+<p>{{userName}}</p>
+<button 
+    (click)="resetUserName()"
+    [disabled]= "userName === ''"
+    class="btn btn-secondary">
+    Reset String
+</button>
+-->
+<label>Assignment 3</label>
+<button
+(click)="incrementCounter()"
+class="btn btn-primary">
+
+Display Details
+</button>
+<p>Secret password = tuna</p>
+<div 
+[ngStyle]="{backgroundColor: x >= 5?'blue':''}"
+[ngClass]="{'textColor': x >= 5}"
+*ngFor="let x of counterArr; let i = index">{{x}}</div>
